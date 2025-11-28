@@ -1,177 +1,170 @@
-/* style.css - Portfolio styling for CSC 337 Assignment 2
-   Uses Flexbox, responsive layout, styled tables, hover effects.
-*/
 
+/* Global theme colors */
 :root{
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --accent: #0a74da;
-  --muted: #6b7280;
-  --accent-2: #0a9bd8;
-  --shadow: 0 6px 18px rgba(10, 116, 218, 0.08);
+  --primary: #0a74da;
+  --primary-light: #e8f1fd;
+  --dark: #1f2937;
+  --text: #374151;
+  --light: #ffffff;
+  --bg: #f5f7fa;
+  --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
   --radius: 10px;
-  --max-width: 1100px;
 }
 
-*{box-sizing:border-box;font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+/* Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 body{
-  margin:0;
-  background:var(--bg);
-  color:#111827;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* Page container */
+/* Reusable container */
 .container{
-  width:90%;
-  max-width:var(--max-width);
-  margin:28px auto;
-  padding:18px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 20px auto;
 }
 
-/* Header / Nav */
-header.site-header{
-  background:linear-gradient(90deg, rgba(10,116,218,0.12), rgba(10,155,216,0.06));
-  padding:18px 0;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  margin-bottom:18px;
-}
-.site-header .top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.site-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.site-title h1{margin:0;font-size:20px; letter-spacing:0.2px;}
-nav.main-nav{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-nav.main-nav a{
-  padding:8px 12px;
-  text-decoration:none;
-  color:var(--accent);
-  border-radius:8px;
-  font-weight:600;
-}
-nav.main-nav a:hover{
-  background:rgba(10,116,218,0.12);
+/* HEADER */
+.site-header{
+  background: var(--light);
+  padding: 15px 0;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: var(--card-shadow);
 }
 
-/* Hero / Intro */
-.hero{
-  background:var(--card);
-  padding:18px;
-  border-radius:10px;
-  box-shadow:var(--shadow);
-  margin-bottom:18px;
+.site-header h1{
+  font-size: 24px;
+  color: var(--primary);
+  font-weight: 700;
 }
 
-/* Generic section styling */
-section.card{
-  background:var(--card);
-  border-radius:8px;
-  padding:16px;
-  box-shadow:var(--shadow);
-  margin-bottom:16px;
+/* NAVIGATION */
+.main-nav{
+  margin-top: 10px;
 }
 
-/* Footer */
-footer.site-footer{
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-  margin:28px 0;
+.main-nav a{
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 
-/* Hobbies: lists & tables */
-ul, ol{margin-left:1.1rem;}
+.main-nav a:hover{
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* MAIN CONTENT SECTIONS */
+section{
+  background: var(--light);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+/* HEADINGS */
+h2, h3{
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* LISTS */
+ul, ol{
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+/* TABLES */
 table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:10px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,250,0.98));
-  border-radius:6px;
-  overflow:hidden;
-}
-table th, table td{
-  padding:10px 12px;
-  text-align:left;
-  border-bottom:1px solid #eee;
-}
-table th{
-  background:linear-gradient(90deg, rgba(10,116,218,0.06), rgba(10,116,218,0.03));
-  color:var(--accent);
-  font-weight:600;
-}
-table tr:hover td{
-  background:rgba(10,116,218,0.03);
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: var(--light);
+  box-shadow: var(--card-shadow);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Media page layout (Flexbox) */
+table th{
+  background: var(--primary-light);
+  padding: 12px;
+  text-align: left;
+  color: var(--primary);
+}
+
+table td{
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover td{
+  background: #f0f7ff;
+}
+
+/* MEDIA PAGE – FLEXBOX LAYOUT */
 .media-layout{
-  display:flex;
-  gap:18px;
-  align-items:flex-start;
+  display: flex;
+  gap: 20px;
 }
+
 .media-left, .media-right{
-  background:var(--card);
-  padding:12px;
-  border-radius:8px;
-  box-shadow:var(--shadow);
+  flex: 1;
+  background: var(--light);
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
 }
-.media-left{flex:0 0 40%;}
-.media-right{flex:1;}
 
 .media-left img{
-  width:100%;
-  border-radius:6px;
-  display:block;
-  margin-bottom:10px;
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
+
 .video-grid{
-  display:grid;
-  grid-template-columns:repeat(1,1fr);
-  gap:12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
 }
+
 .video-grid iframe{
-  width:100%;
-  height:240px;
-  border-radius:6px;
-  border:0;
+  width: 100%;
+  height: 240px;
+  border-radius: 6px;
+  border: 0;
 }
 
-/* Contact page form-style layout */
+/* CONTACT PAGE FORM STYLE */
 .contact-grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
+
 .contact-card{
-  padding:14px;
-}
-.contact-row label{display:block;font-weight:600;margin-bottom:6px;color:var(--muted);}
-.contact-row p,input{margin:0 0 10px 0;}
-.contact-card small{color:var(--muted);display:block;margin-top:8px;}
-
-/* Responsive rules */
-@media (max-width:900px){
-  .media-layout{flex-direction:column;}
-  .media-left{flex:unset;width:100%;}
-  .contact-grid{grid-template-columns:1fr;}
-  .video-grid iframe{height:200px;}
+  background: var(--light);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
 }
 
-/* Small utilities */
-.center{text-align:center;}
-.badge{
-  display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:600;font-size:13px;
+/* FOOTER */
+.site-footer{
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  color: var(--dark);
+  font-size: 14px;
 }
